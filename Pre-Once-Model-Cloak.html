@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="dir">
+       <p v-pre>{{mssage}}</p><!-- it do not compile the mustache-->
+       <p v-cloak>{{message}}</p><!-- firstly it compile then after that it return result-->
+       <p v-once>{{message}}</p><!-- it assign value only one time-->
+   </div> 
+   <div id="dir2">
+      <input type="text" v-model="message"/><!-- when we chane any value then it also change in message-->
+      <p>{{message}}</p>
+   </div>
+   <div id="dir3">
+    <input type="text" v-model.number="message1"/>
+    <input type="text" v-model.number="message2"/><!-- when we use the number then it convert the 
+    string into number-->
+    <p>{{message1+message2}}</p>
+ </div>
+ <div id="dir4">
+    <input type="text" v-model.number.lazy="message1"/>
+    <input type="text" v-model.number.lazy="message2"/><!-- it do not show any changes whenever we do not 
+    apply any listener like enter-->
+    <p>{{message1+message2}}</p>
+ </div>
+ <div id="dir5">
+    <input type="text" v-model.lazy="message1"/>
+    <input type="text" v-model.lazy.trim="message2"/><!-- it remove the spaces from the left and right  
+    of the string-->
+    <p>{{message1+message2}}</p>
+ </div>
+</body>
+<script src="./js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app= new Vue({
+        el:"#dir5",
+        data:{
+            message:"Hllo World",
+            message1:"",
+            message2:""
+        }
+    })
+</script>
+</html>

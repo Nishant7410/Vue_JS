@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For on bind</title>
+</head>
+<body>
+    <div id="for-on">
+        <a href="google.com" v-on:click.prevent>click me</a><!-- it will work after some time-->
+       <ul>
+           <li v-for="(city,ind) in cities" v-bind:title="city">{{city}}-{{ind}}</li><!--  v-bind:id,v-bind:class and so many binds -->
+       </ul>
+       <ul>
+           <li v-for="(val,key) in car">{{val.name}}- {{key}}</li>
+       </ul>
+       <input type="text" v-on:keyup.enter="addElement"/>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app=new Vue({
+        el:"#for-on",
+        data:{
+            cities:["hello","hii","how"],
+            car:[{
+                name:"baleno"
+            },
+            {
+                name:"swift"
+            },
+            {
+                name:"ciaz"
+            }]
+        },
+        methods:{
+            addElement:function(event){
+                this.cities.push(event.target.value);
+            }
+        }
+    })
+</script>
+</html>

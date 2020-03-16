@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directves</title>
+</head>
+<body>
+    <div id="directive">
+        <p>Hii, {{var1}}</p>//it is mustache it also apend the content
+        <p v-text="phone"></p>//it show the content
+        <p v-html="city"></p>// it separate the tags
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+var app=new Vue({
+    el:"#directive",
+    data:{
+        var1:"Hello World",
+        phone:"<h1>123456789</h1>",
+        city:"<h1>Sirsa</h1>"
+    }
+});
+</script>
+</html>

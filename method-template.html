@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methid and Template</title>
+</head>
+<body>
+    <div id="dir">
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+var app=new Vue({
+    template:`<div id="wrapper">
+    <h1>{{message}}</h1>
+    <button @click="showmethod">Click</button>
+    </div>`,//template override the target div
+     data:{
+         message:"Hello World"
+     },
+     methods:{
+        showmethod(){
+            console.log(2+2);
+        }
+     },
+     mounted(){
+         this.showmethod();//Mount function call autotically
+     }
+
+}).$mount("#dir");// we use this also in place of el
+</script>
+</html>

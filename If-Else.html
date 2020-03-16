@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If-Else</title>
+</head>
+<body>
+    <div id="If-Else">
+       <div v-if="show==1">
+           <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, voluptate.</h3>
+       </div>
+       <div v-else-if="show==2">
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, voluptate.</h3>
+      </div>
+      <div v-else>
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, voluptate.</h3>
+    </div>
+
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app=new Vue({
+        el:"#If-Else",
+        data:{
+            show:1
+        }
+    })
+</script>
+</html>

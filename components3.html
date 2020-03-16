@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components</title>
+</head>
+<body>
+    <div id="dir">
+        <input type="text" v-model="message"/>
+        <table>
+         <tr is="my-component" v-bind:phone="phone"></tr>
+    </table>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.component("my-component",{
+        props:{
+            name:[String,Number],//it means we store string or Number
+            title:{
+                type:Object,
+                default:function(){
+                    return {mess:"Hii"}
+                }
+            },
+            phone:{
+                type:Number,
+                validator:function(value){
+                    return value>9;
+                }
+            }
+        },
+        template:`<tr>
+        <td>{{phone}}</td>
+        </tr>`,
+    })
+    var app=new Vue({
+        data:{
+            message:"Hello World",
+            phone:10
+        }
+    }).$mount("#dir");
+</script>
+</html>
